@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Listado de Inscripciones</h2>
+<a href="{% url 'crear_inscripcion' %}">Crear Nueva Inscripción</a>
+<ul>
+    {% for inscripcion in inscripciones %}
+        <li>
+            {{ inscripcion.estudiante.nombre }} inscrito en {{ inscripcion.curso.nombre }}
+            el {{ inscripcion.fecha_inscripcion }}
+        </li>
+    {% empty %}
+        <li>No hay inscripciones disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

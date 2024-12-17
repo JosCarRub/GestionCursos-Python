@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Listado de Estudiantes</h2>
+<a href="{% url 'crear_estudiante' %}">Agregar Nuevo Estudiante</a>
+<ul>
+    {% for estudiante in estudiantes %}
+        <li>
+            {{ estudiante.nombre }} - {{ estudiante.email }} (Nacido el {{ estudiante.fecha_nacimiento }})
+        </li>
+    {% empty %}
+        <li>No hay estudiantes disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

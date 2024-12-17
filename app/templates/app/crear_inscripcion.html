@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Crear Nueva Inscripción</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'listar_inscripciones' %}">Volver</a>
+{% endblock %}

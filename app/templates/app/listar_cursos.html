@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Listado de Cursos</h2>
+<a href="{% url 'crear_curso' %}">Crear Nuevo Curso</a>
+<ul>
+    {% for curso in cursos %}
+        <li>
+            {{ curso.nombre }} - {{ curso.codigo }} ({{ curso.fecha_inicio }} a {{ curso.fecha_fin }})
+            <a href="{% url 'editar_curso' curso.pk %}">Editar</a>
+            <a href="{% url 'eliminar_curso' curso.pk %}">Eliminar</a>
+        </li>
+    {% empty %}
+        <li>No hay cursos disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

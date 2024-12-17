@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Cursos y Estudiantes</h1>
+            <ul>
+                <li><a href="{% url 'listar_cursos' %}">Cursos</a></li>
+                <li><a href="{% url 'listar_estudiantes' %}">Estudiantes</a></li>
+                <li><a href="{% url 'listar_inscripciones' %}">Inscripciones</a></li>
+            </ul>
+    </header> 
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
