@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curso, Estudiante, Inscripcion
 from .forms import CursoForm, EstudianteForm, InscripcionForm
 from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 
 
 class ListarCursos(ListView):
@@ -12,7 +13,10 @@ class ListarCursos(ListView):
 class CrearCurso(CreateView):
     model = Curso
     template_name = 'app/crear_curso.html'
-    #form
+    form_class = CursoForm
+    success_url = reverse_lazy('listar_cursos')
+
+
 
 def listar_cursos(request):
     cursos = Curso.objects.all()
