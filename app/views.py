@@ -1,6 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curso, Estudiante, Inscripcion
 from .forms import CursoForm, EstudianteForm, InscripcionForm
+from django.views.generic import ListView, CreateView
+
+
+class ListarCursos(ListView):
+    model = Curso
+    template_name= 'app/listar_cursos.html'
+    context_object_name = 'cursos'
+
+class CrearCurso(CreateView):
+    model = Curso
+    template_name = 'app/crear_curso.html'
+    #form
 
 def listar_cursos(request):
     cursos = Curso.objects.all()

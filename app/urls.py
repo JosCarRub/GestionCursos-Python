@@ -1,9 +1,13 @@
 from django.urls import path
 from . import views
+from .views import *
 
 urlpatterns = [
-    path('app/cursos/', views.listar_cursos, name='listar_cursos'),
-    path('app/cursos/crear/', views.crear_curso, name='crear_curso'),
+    #path('app/cursos/', views.listar_cursos, name='listar_cursos'),
+    path('app/cursos/', ListarCursos.as_view() , name='listar_cursos'),
+
+    #path('app/cursos/crear/', views.crear_curso, name='crear_curso'),
+    path('app/cursos/crear/', CrearCurso.as_view(), name='crear_curso'),
     path('cursos/editar/<int:pk>/', views.editar_curso, name='editar_curso'),
     path('cursos/eliminar/<int:pk>/', views.eliminar_curso, name='eliminar_curso'),
 
