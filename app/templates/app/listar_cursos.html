@@ -7,8 +7,8 @@
     {% for curso in cursos %}
         <li>
             {{ curso.nombre }} - {{ curso.codigo }} ({{ curso.fecha_inicio }} a {{ curso.fecha_fin }})
-            <a href="{% url 'editar_curso' pk=curso.pk %}">Editar curso</a>
-            <a href="{% url 'eliminar_curso' pk=curso.pk %}">Eliminar curso</a>
+            <a href="{% url 'editar_curso' pk=curso.pk %}" class="btn btn-info">Editar curso</a>
+            <a href="{% url 'eliminar_curso' pk=curso.pk %}" class="btn btn-danger">Eliminar curso</a>
         </li>
     {% empty %}
         <li>No hay cursos disponibles.</li>

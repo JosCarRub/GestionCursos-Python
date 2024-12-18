@@ -8,6 +8,7 @@
         <li>
             {{ inscripcion.estudiante.nombre }} inscrito en {{ inscripcion.curso.nombre }}
             el {{ inscripcion.fecha_inscripcion }}
+            <a href="{% url 'eliminar_inscripcion' pk=inscripcion.pk %}" class="btn btn-danger">Eliminar inscripcion</a>
         </li>
     {% empty %}
         <li>No hay inscripciones disponibles.</li>

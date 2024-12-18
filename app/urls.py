@@ -14,4 +14,5 @@ urlpatterns = [
 
     path('inscripciones/', views.listar_inscripciones, name='listar_inscripciones'),
     path('inscripciones/crear/', views.crear_inscripcion, name='crear_inscripcion'),
+    path('inscripciones/eliminar/<int:pk>/', views.eliminar_inscripcion, name='eliminar_inscripcion'),
 ]
