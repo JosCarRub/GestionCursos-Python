@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curso, Estudiante, Inscripcion
 from .forms import CursoForm, EstudianteForm, InscripcionForm
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DeleteView
 from django.urls import reverse_lazy
 
 
@@ -16,6 +16,10 @@ class CrearCurso(CreateView):
     form_class = CursoForm
     success_url = reverse_lazy('listar_cursos')
 
+class BorrarCurso(DeleteView):
+    model = Curso
+    template_name = 'app/confirmar_eliminacion.html'
+    success_url = reverse_lazy('listar_cursos')
 
 
 def listar_cursos(request):
