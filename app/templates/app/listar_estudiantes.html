@@ -7,6 +7,9 @@
     {% for estudiante in estudiantes %}
         <li>
             {{ estudiante.nombre }} - {{ estudiante.email }} (Nacido el {{ estudiante.fecha_nacimiento }})
+            <a href="{% url 'editar_estudiante' pk=estudiante.pk %}">Editar estudiante</a>
+            <a href="{% url 'eliminar_estudiante' pk=estudiante.pk %}">Eliminar estudiante</a>
+            
         </li>
     {% empty %}
         <li>No hay estudiantes disponibles.</li>
